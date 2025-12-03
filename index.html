@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>José Luis Jiménez | Portafolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">JOSÉ LUIS JIMÉNEZ</div>
+            <ul class="nav-links">
+                <li><a href="#sobre-mi">Perfil</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#certificaciones">Formación</a></li>
+            </ul>
+            <button id="tema-btn">🌙 Neón</button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="img-container">
+                <img src="assets/perfil.jpg" alt="José Luis Jiménez" class="profile-img">
+            </div>
+            <h1>Ingeniero en Sistemas</h1>
+            <h2>Desarrollador Full Stack & Especialista en Seguridad</h2>
+            <p>React | Laravel | Flutter | Linux | Ciberseguridad</p>
+            <div class="hero-btns">
+                <a href="#contacto" class="btn">Contactar</a>
+                <a href="#proyectos" class="btn btn-outline">Ver Proyectos</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-mi" class="container reveal">
+        <h2>Sobre Mí</h2>
+        <p class="bio-text">
+          Soy estudiante de Ingeniería en Sistemas Computacionales (7º semestre) con una sólida base técnica. 
+          Combino el desarrollo de software moderno con conocimientos avanzados en 
+          <strong> Ciberseguridad, Administración de Linux y Redes.</strong> 
+          Poseo habilidades de liderazgo y gestión para coordinar equipos y resolver problemas complejos.
+        </p>
+    </section>
+
+    <section id="habilidades" class="container reveal">
+        <h2>Stack Tecnológico</h2>
+        <div class="filter-buttons" id="filter-container">
+            <button class="filter-btn active" onclick="filtrarHabilidades('Todos', this)">Todos</button>
+            <button class="filter-btn" onclick="filtrarHabilidades('Web', this)">Web</button>
+            <button class="filter-btn" onclick="filtrarHabilidades('Frameworks', this)">Frameworks</button>
+            <button class="filter-btn" onclick="filtrarHabilidades('Sistemas', this)">Sistemas</button>
+            <button class="filter-btn" onclick="filtrarHabilidades('Gestión', this)">Gestión</button>
+        </div>
+        
+        <div class="skills-grid-dynamic" id="skills-grid"></div>
+    </section>
+
+    <section id="proyectos" class="container reveal">
+        <h2>Experiencia y Proyectos</h2>
+        <div class="projects-grid" id="projects-grid"></div>
+    </section>
+
+    <section id="certificaciones" class="container reveal">
+        <h2>Formación Adicional</h2>
+        <div class="certs-grid">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4>Ciberseguridad</h4>
+                        <div class="icon">🏆</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <h4>Cisco Networking Academy</h4>
+                        <p>Octubre 2025</p>
+                        <hr>
+                        <p class="detail">Fundamentos de seguridad.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4>Linux Unhatched</h4>
+                        <div class="icon">🏆</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <h4>Cisco Networking Academy</h4>
+                        <p>Abril 2025</p>
+                        <hr>
+                        <p class="detail">Administración de Linux.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4>Liderazgo F1</h4>
+                        <div class="icon">🏆</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <h4>Santander Open Academy</h4>
+                        <p>Octubre 2025</p>
+                        <hr>
+                        <p class="detail">Liderazgo de alto rendimiento.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4>Comunicación</h4>
+                        <div class="icon">🏆</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <h4>Santander Open Academy</h4>
+                        <p>Mayo 2025</p>
+                        <hr>
+                        <p class="detail">Habilidades blandas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <h2>Contacto</h2>
+        
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/jos%C3%A9-luis-jimenez-medina-300935354/" target="_blank" class="social-btn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Z3R0codeX" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
+            <a href="mailto:jliusjimenez@gmail.com" class="social-btn"><i class="fas fa-envelope"></i></a>
+        </div>
+
+        <div class="contact-info">
+            <p>Nuevo Casas Grandes, Chihuahua</p>
+            <p>📧 jliusjimenez@gmail.com</p>
+            <p>📱 636 136 09 62</p>
+        </div>
+        
+        <p class="copyright">© 2025 José Luis Jiménez Medina</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
