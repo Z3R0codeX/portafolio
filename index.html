@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>José Luis Jiménez | Portafolio</title>
+    <title>José Luis Jiménez | Ingeniero en Sistemas Computacionales</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -11,139 +11,131 @@
 
     <header>
         <nav>
-            <div class="logo">JOSÉ LUIS JIMÉNEZ</div>
+            <div class="logo">J.L.<b>JIMENEZ</b></div>
             <ul class="nav-links">
-                <li><a href="#sobre-mi">Perfil</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#perfil">Perfil</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#certificaciones">Formación</a></li>
+                <li><a href="#stack">Stack</a></li>
+                <li><a href="#certificaciones">Certificaciones</a></li>
             </ul>
-            <button id="tema-btn">🌙 Neón</button>
+            <button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <div class="img-container">
-                <img src="assets/perfil.jpg" alt="José Luis Jiménez" class="profile-img">
-            </div>
-            <h1>Ingeniero en Sistemas</h1>
-            <h2>Desarrollador Full Stack & Especialista en Seguridad</h2>
-            <p>React | Laravel | Flutter | Linux | Ciberseguridad</p>
-            <div class="hero-btns">
-                <a href="#contacto" class="btn">Contactar</a>
-                <a href="#proyectos" class="btn btn-outline">Ver Proyectos</a>
+   <section id="perfil" class="hero">
+    <div class="hero-container">
+        <div class="hero-image reveal">
+            <img src="assets/perfil.jpg" alt="José Luis Jiménez">
+        </div>
+        <div class="hero-text reveal">
+            <h1>José Luis Jiménez Medina</h1>
+            <h2 class="typing-text">Ingeniero en Sistemas Computacionales</h2>
+            <p class="personal-summary">
+                Enfocado en la convergencia entre el Desarrollo de Software y la Infraestructura de TI. 
+                Especialista en la creación de ecosistemas web escalables mediante el uso de Frameworks y APIs REST, 
+                complementado con una sólida capacidad para el despliegue de servidores, administración de 
+                redes y configuración avanzada de sistemas operativos Windows y Linux. 
+                Mi enfoque une la eficiencia del código con la robustez de la infraestructura.
+            </p>
+            
+            <div class="hero-contact-bar">
+                <a href="mailto:jliusjimenez@gmail.com" class="contact-pill">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <a href="https://github.com/Z3R0codeX" target="_blank" class="contact-pill">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/josé-luis-jimenez-medina-300935354/" target="_blank" class="contact-pill">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
             </div>
         </div>
-    </section>
-
-    <section id="sobre-mi" class="container reveal">
-        <h2>Sobre Mí</h2>
-        <p class="bio-text">
-          Soy estudiante de Ingeniería en Sistemas Computacionales (7º semestre) con una sólida base técnica. 
-          Combino el desarrollo de software moderno con conocimientos avanzados en 
-          <strong> Ciberseguridad, Administración de Linux y Redes.</strong> 
-          Poseo habilidades de liderazgo y gestión para coordinar equipos y resolver problemas complejos.
-        </p>
-    </section>
-
-    <section id="habilidades" class="container reveal">
-        <h2>Stack Tecnológico</h2>
-        <div class="filter-buttons" id="filter-container">
-            <button class="filter-btn active" onclick="filtrarHabilidades('Todos', this)">Todos</button>
-            <button class="filter-btn" onclick="filtrarHabilidades('Web', this)">Web</button>
-            <button class="filter-btn" onclick="filtrarHabilidades('Frameworks', this)">Frameworks</button>
-            <button class="filter-btn" onclick="filtrarHabilidades('Sistemas', this)">Sistemas</button>
-            <button class="filter-btn" onclick="filtrarHabilidades('Gestión', this)">Gestión</button>
-        </div>
-        
-        <div class="skills-grid-dynamic" id="skills-grid"></div>
-    </section>
+    </div>
+</section>
 
     <section id="proyectos" class="container reveal">
-        <h2>Experiencia y Proyectos</h2>
-        <div class="projects-grid" id="projects-grid"></div>
+        <div class="section-header"><span>01.</span><h2>Proyectos Destacados</h2></div>
+        <div id="projects-grid" class="projects-grid"></div>
+    </section>
+
+    <section id="stack" class="container reveal">
+        <div class="section-header"><span>02.</span><h2>Stack Tecnológico</h2></div>
+        <div class="tech-filters">
+            <button class="filter-btn active" data-cat="all">Todos</button>
+            <button class="filter-btn" data-cat="web-core">Core-web</button>
+            <button class="filter-btn" data-cat="framework">Frameworks</button>
+            <button class="filter-btn" data-cat="api">APIs & Backend</button>
+            <button class="filter-btn" data-cat="lowlevel">Hardware & OS</button>
+        </div>
+        <div id="skills-grid" class="skills-grid"></div>
     </section>
 
     <section id="certificaciones" class="container reveal">
-        <h2>Formación Adicional</h2>
-        <div class="certs-grid">
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h4>Ciberseguridad</h4>
-                        <div class="icon">🏆</div>
-                    </div>
-                    <div class="flip-card-back">
-                        <h4>Cisco Networking Academy</h4>
-                        <p>Octubre 2025</p>
-                        <hr>
-                        <p class="detail">Fundamentos de seguridad.</p>
-                    </div>
-                </div>
+        <div class="section-header">
+            <span>03.</span>
+            <h2>Certificaciones Profesionales</h2>
+        </div>
+        
+        <div class="badges-row">
+            <div class="badge-item">
+                <div data-iframe-width="300" data-iframe-height="270" data-share-badge-id="c5d21f93-c4ef-406a-bff3-c325d1f7f28d" data-share-badge-host="https://www.credly.com"></div>
             </div>
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h4>Linux Unhatched</h4>
-                        <div class="icon">🏆</div>
-                    </div>
-                    <div class="flip-card-back">
-                        <h4>Cisco Networking Academy</h4>
-                        <p>Abril 2025</p>
-                        <hr>
-                        <p class="detail">Administración de Linux.</p>
-                    </div>
-                </div>
+            <div class="badge-item">
+                <div data-iframe-width="300" data-iframe-height="270" data-share-badge-id="8ec88895-74af-45f1-96c0-cca54a96b0af" data-share-badge-host="https://www.credly.com"></div>
             </div>
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h4>Liderazgo F1</h4>
-                        <div class="icon">🏆</div>
-                    </div>
-                    <div class="flip-card-back">
-                        <h4>Santander Open Academy</h4>
-                        <p>Octubre 2025</p>
-                        <hr>
-                        <p class="detail">Liderazgo de alto rendimiento.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h4>Comunicación</h4>
-                        <div class="icon">🏆</div>
-                    </div>
-                    <div class="flip-card-back">
-                        <h4>Santander Open Academy</h4>
-                        <p>Mayo 2025</p>
-                        <hr>
-                        <p class="detail">Habilidades blandas.</p>
-                    </div>
-                </div>
+            <div class="badge-item">
+                <div data-iframe-width="300" data-iframe-height="270" data-share-badge-id="455f77c4-be53-4d90-83fc-3632db45ab84" data-share-badge-host="https://www.credly.com"></div>
             </div>
         </div>
+
+        <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
     </section>
 
     <footer id="contacto">
-        <h2>Contacto</h2>
-        
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/jos%C3%A9-luis-jimenez-medina-300935354/" target="_blank" class="social-btn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/Z3R0codeX" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
-            <a href="mailto:jliusjimenez@gmail.com" class="social-btn"><i class="fas fa-envelope"></i></a>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>José Luis Jiménez</h3>
+            <p>Ingeniero en Sistemas enfocado en el desarrollo de soluciones integrales que unen el hardware y el software mediante APIs robustas y seguras.</p>
+            <div class="social-group">
+                <a href="https://github.com/Z3R0codeX" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/josé-luis-jimenez-medina-300935354/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:jliusjimenez@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+            </div>
         </div>
 
-        <div class="contact-info">
-            <p>Nuevo Casas Grandes, Chihuahua</p>
-            <p>📧 jliusjimenez@gmail.com</p>
-            <p>📱 636 136 09 62</p>
+        <div class="footer-section">
+            <h3>Explorar</h3>
+            <ul class="footer-links">
+                <li><a href="#perfil">Perfil Profesional</a></li>
+                <li><a href="#stack">Habilidades</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#certificaciones">Certificaciones</a></li>
+            </ul>
         </div>
-        
-        <p class="copyright">© 2025 José Luis Jiménez Medina</p>
-    </footer>
+
+        <div class="footer-section">
+            <h3>Especialidad</h3>
+            <ul class="footer-links">
+                <li><a href="#">Desarrollo de APIs</a></li>
+                <li><a href="#">Sistemas Embebidos</a></li>
+                <li><a href="#">Ciberseguridad</a></li>
+                <li><a href="#">Mobile Dev</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Contacto</h3>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--col-gold); margin-right:10px;"></i> Nuevo Casas Grandes, Chihuahua</p>
+            <p><i class="fas fa-envelope" style="color:var(--col-gold); margin-right:10px;"></i> jliusjimenez@gmail.com</p>
+            <p style="margin-top: 15px; font-size: 0.8rem; color: var(--col-gold);">Disponible para reubicación y proyectos remotos.</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 José Luis Jiménez Medina. Todos los derechos reservados.</p>
+    </div>
+</footer>
 
     <script src="script.js"></script>
 </body>

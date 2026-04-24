@@ -1,147 +1,123 @@
-// --- DATOS (Habilidades y Proyectos) ---
-
-const habilidades = [
-    { nombre: "HTML5", categoria: "Web", icono: "fab fa-html5" },
-    { nombre: "CSS3", categoria: "Web", icono: "fab fa-css3-alt" },
-    { nombre: "JavaScript", categoria: "Web", icono: "fab fa-js" },
-    { nombre: "PHP", categoria: "Web", icono: "fab fa-php" },
-    { nombre: "React", categoria: "Frameworks", icono: "fab fa-react" },
-    { nombre: "Laravel", categoria: "Frameworks", icono: "fab fa-laravel" },
-    { nombre: "Flutter", categoria: "Frameworks", icono: "fab fa-android" },
-    { nombre: "Bootstrap", categoria: "Frameworks", icono: "fab fa-bootstrap" },
-    { nombre: "Ciberseguridad", categoria: "Sistemas", icono: "fas fa-shield-alt" },
-    { nombre: "Linux Admin", categoria: "Sistemas", icono: "fab fa-linux" },
-    { nombre: "Redes", categoria: "Sistemas", icono: "fas fa-network-wired" },
-    { nombre: "Liderazgo", categoria: "Gestión", icono: "fas fa-users" },
-    { nombre: "Resolución", categoria: "Gestión", icono: "fas fa-lightbulb" },
-    { nombre: "Colaboración", categoria: "Gestión", icono: "fas fa-handshake" },
+const stackData = [
+    // Frameworks & Mobile
+    { name: "React Native", cat: "framework", icon: "fab fa-react" },
+    { name: "Flutter", cat: "framework", icon: "fas fa-mobile-alt" },
+    { name: "Bootstrap", cat: "framework", icon: "fab fa-bootstrap" },
+    
+    // APIs & Backend
+    { name: "Laravel", cat: "api", icon: "fab fa-laravel" },
+    { name: "PHP", cat: "api", icon: "fab fa-php" },
+    { name: "REST APIs", cat: "api", icon: "fas fa-network-wired" },
+    { name: "MySQL / SQL Server", cat: "api", icon: "fas fa-database" },
+    
+    // Hardware & Systems
+    { name: "ESP32 / C++", cat: "lowlevel", icon: "fas fa-microchip" },
+    { name: "Linux Admin", cat: "lowlevel", icon: "fab fa-linux" },
+    { name: "Ciberseguridad", cat: "lowlevel", icon: "fas fa-user-shield" },
+    { name: "Sistemas de Archivos", cat: "lowlevel", icon: "fas fa-hdd" },
+    { name: "Ciberseguridad", cat: "lowlevel", icon: "fas fa-user-shield" },
+    
+    // Core Web
+    { name: "HTML5", cat: "web-core", icon: "fab fa-html5" },
+    { name: "CSS3", cat: "web-core", icon: "fab fa-css3-alt" },
+    { name: "JavaScript", cat: "web-core", icon: "fab fa-js" }
 ];
 
-const proyectosData = [
+const projectsData = [
     {
-        id: 1,
-        titulo: "Robótica InnovaTecNM 2025",
-        subtitulo: "Robot Humanoide (InnoBotica)",
-        descripcion: "Diseño de aplicacion y programación de lógica en C++.",
-        tags: ['C++', 'Arduino', 'Sensores', 'Mecánica'],
-        imagenes: ["assets/proyectos/robot1.jpg", "assets/proyectos/robot2.jpg", "assets/proyectos/robot3.jpg", "assets/proyectos/robot4.jpg", "assets/proyectos/robot5.jpg"],
-        link: null,
-        demo: null
-    },
-    {
-        id: 2,
-        titulo: "Tech Smash V1",
-        subtitulo: "Organización de Eventos",
-        descripcion: "Coordinación logística del Torneo de Videojuegos por el 30 Aniversario.",
-        tags: ['Liderazgo', 'Logística', 'Gestión', 'Marketing'],
-        imagenes: ["assets/proyectos/torneo1.jpg", "assets/proyectos/torneo2.jpg", "assets/proyectos/torneo3.jpg"],
-        link: null,
-        demo: null
-    },
-    {
-        id: 3,
-        titulo: "PetPedia",
-        subtitulo: "Plataforma de Servicios Veterinarios",
-        descripcion: "Gestión de servicios y adopciones. Plataforma Web.",
-        tags: ['React', 'Laravel', 'Bootstrap', 'SQL'],
-        imagenes: ["assets/proyectos/app1.png"], 
-        link: "https://github.com/Z3R0codeX/Z3R0codeX.github.io",
+        title: "Ecosistema PetPedia",
+        desc: "Plataforma integral para la gestión de servicios veterinarios y adopciones. Implementada con una interfaz responsiva en Bootstrap y una arquitectura de datos robusta en SQL para garantizar la integridad y escalabilidad de la información.",
+        img: "assets/proyectos/app1.png",
+        tags: ["Bootstrap", "MySQL / SQL Server", "PHP"],
         demo: "https://z3r0codex.github.io/"
     },
+   {
+        title: "Control Humanoide InnoBotica",
+        desc: "Ingeniería de control y programación de bajo nivel para actuadores en tiempo real. Incluye el diseño y desarrollo de una interfaz de control mediante una aplicación móvil personalizada, permitiendo la gestión inalámbrica de movimientos cinemáticos del hardware basado en ESP32.",
+        img: "assets/proyectos/robot1.jpg",
+        tags: ["C++", "ESP32", "App Móvil", "Embedded Systems"],
+        demo: null
+    },
+    {
+        title: "Micropack Mobile App",
+        desc: "Ecosistema móvil para el comercio de servicios, basado en una arquitectura desacoplada. Utiliza una API REST potente desarrollada en Laravel y una interfaz nativa en React Native, priorizando la seguridad en las transacciones y la eficiencia del servidor.",
+        img: "assets/proyectos/app2.png", // Sugerencia: añadir una imagen representativa
+        tags: ["Laravel", "APIs REST", "React Native"],
+        demo: null
+    },
+
 ];
 
-// Estado simulado para los carruseles (guarda el indice actual de cada proyecto)
-const carouselState = {
-    1: 0, 2: 0, 3: 0, 4: 0
-};
-
-// --- 1. MODO OSCURO ---
-const temaBtn = document.getElementById('tema-btn');
-const body = document.body;
-
-temaBtn.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    if (body.classList.contains('dark-mode')) {
-        temaBtn.textContent = '☀️ Luz';
-    } else {
-        temaBtn.textContent = '🌙 Neón';
-    }
+// Dark Mode Toggle
+const themeBtn = document.getElementById('theme-toggle');
+themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    themeBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
 });
 
-// --- 2. RENDERIZADO DE HABILIDADES (FILTRO) ---
-function renderHabilidades(filtro = 'Todos') {
+// Render Skills Dinámico
+function renderSkills(filter = 'all') {
     const grid = document.getElementById('skills-grid');
-    grid.innerHTML = ''; // Limpiar contenido previo
+    if (!grid) return;
 
-    const filtradas = filtro === 'Todos' 
-        ? habilidades 
-        : habilidades.filter(h => h.categoria === filtro);
+    grid.innerHTML = '';
 
-    filtradas.forEach(h => {
-        const card = document.createElement('div');
-        card.className = 'skill-card';
-        card.innerHTML = `
-            <div class="skill-icon"><i class="${h.icono}"></i></div>
-            <span>${h.nombre}</span>
-            <div class="skill-category-tag">${h.categoria}</div>
+    // LÓGICA CORREGIDA: 
+    // Si es 'all', muestra todo. 
+    // Si no, filtra SOLO por la categoría exacta del botón.
+    const filtered = filter === 'all' 
+        ? stackData 
+        : stackData.filter(s => s.cat === filter);
+
+    filtered.forEach((s, index) => {
+        const item = document.createElement('div');
+        item.className = 'skill-item';
+        item.style.transitionDelay = `${index * 50}ms`;
+        item.innerHTML = `
+            <i class="${s.icon}"></i>
+            <span>${s.name}</span>
         `;
-        grid.appendChild(card);
+        grid.appendChild(item);
+        
+        setTimeout(() => item.classList.add('active'), 10);
     });
 }
 
-function filtrarHabilidades(categoria, btn) {
-    // Actualizar visualmente los botones
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    
-    // Renderizar de nuevo
-    renderHabilidades(categoria);
-}
+// Configuración de los botones de filtro
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        // Remover clase active de todos los botones
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        // Añadir a este botón
+        this.classList.add('active');
+        
+        // Ejecutar el filtrado usando el atributo data-cat
+        renderSkills(this.getAttribute('data-cat'));
+    });
+});
 
-// Inicializar habilidades
-renderHabilidades();
-
-// --- 3. RENDERIZADO DE PROYECTOS ---
-function renderProyectos() {
+// Render Proyectos
+function renderProjects() {
     const grid = document.getElementById('projects-grid');
-    
-    proyectosData.forEach(p => {
+    projectsData.forEach(p => {
         const card = document.createElement('div');
-        card.className = 'card';
-        
-        // Generar tags HTML
-        const tagsHtml = p.tags.map(tag => `<span class="tech-tag">${tag}</span>`).join('');
-        
-        // Generar botones (Github / Demo)
-        let botonesHtml = '';
-        if (p.demo) {
-            botonesHtml += `<a href="${p.demo}" target="_blank" class="btn" style="padding: 6px 15px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 5px; text-decoration: none; margin-right: 10px;"><i class="fas fa-external-link-alt"></i> Visitar</a>`;
-        }
-        if (p.link) {
-            botonesHtml += `<a href="${p.link}" target="_blank" class="btn-outline" style="padding: 6px 15px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 5px; text-decoration: none;"><i class="fab fa-github"></i> Código</a>`;
-        }
+        card.className = 'project-card reveal';
 
-        // Generar controles de carrusel solo si hay mas de 1 imagen
-        let carruselControles = '';
-        if (p.imagenes.length > 1) {
-            carruselControles = `
-                <button class="carousel-btn prev" onclick="cambiarImagen(${p.id}, -1)">❮</button>
-                <button class="carousel-btn next" onclick="cambiarImagen(${p.id}, 1)">❯</button>
-            `;
+        if (p.demo) {
+            card.style.cursor = 'pointer';
+            card.onclick = () => window.open(p.demo, '_blank');
         }
 
         card.innerHTML = `
-            <div class="carousel-container">
-                <img src="${p.imagenes[0]}" alt="${p.titulo}" class="carousel-img" id="img-proy-${p.id}">
-                ${carruselControles}
+            <div class="project-img-wrapper">
+                <img src="${p.img}" alt="${p.title}">
             </div>
-            <div class="card-content">
-                <h3>${p.titulo}</h3>
-                <h4 class="card-subtitle">${p.subtitulo}</h4>
-                <p>${p.descripcion}</p>
-                <div class="tags-container">${tagsHtml}</div>
-                <div style="margin-top: auto; padding-top: 20px;">
-                    ${botonesHtml}
+            <div style="padding:1.5rem">
+                <h3 style="margin-bottom:0.5rem">${p.title}</h3>
+                <p style="color:var(--secondary); font-size:0.9rem; margin-bottom:1rem">${p.desc}</p>
+                <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+                    ${p.tags.map(t => `<span class="tech-badge">${t}</span>`).join('')}
                 </div>
             </div>
         `;
@@ -149,41 +125,23 @@ function renderProyectos() {
     });
 }
 
-// Inicializar proyectos
-renderProyectos();
-
-// --- 4. LÓGICA DEL CARRUSEL ---
-// Esta función se llama desde el HTML generado (onclick)
-window.cambiarImagen = function(idProyecto, direccion) {
-    const proyecto = proyectosData.find(p => p.id === idProyecto);
-    let indiceActual = carouselState[idProyecto];
-    
-    // Calcular nuevo índice
-    let nuevoIndice = indiceActual + direccion;
-    if (nuevoIndice < 0) nuevoIndice = proyecto.imagenes.length - 1;
-    if (nuevoIndice >= proyecto.imagenes.length) nuevoIndice = 0;
-    
-    // Actualizar estado
-    carouselState[idProyecto] = nuevoIndice;
-    
-    // Actualizar imagen en el DOM
-    const imgElement = document.getElementById(`img-proy-${idProyecto}`);
-    imgElement.src = proyecto.imagenes[nuevoIndice];
-};
-
-// --- 5. SCROLL REVEAL ANIMATION ---
-window.addEventListener('scroll', () => {
-    const reveals = document.querySelectorAll('.reveal');
-    const windowHeight = window.innerHeight;
-    const elementVisible = 150;
-
-    reveals.forEach(reveal => {
-        const elementTop = reveal.getBoundingClientRect().top;
-        if (elementTop < windowHeight - elementVisible) {
-            reveal.classList.add('active');
-        }
+// Filtros click
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelector('.filter-btn.active').classList.remove('active');
+        btn.classList.add('active');
+        renderSkills(btn.dataset.cat);
     });
 });
 
-// Lanzar animación al inicio por si ya estamos scrolleados
-window.dispatchEvent(new Event('scroll'));
+// Inicialización
+function init() {
+    renderSkills();
+    renderProjects();
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+init();
