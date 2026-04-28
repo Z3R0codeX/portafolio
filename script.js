@@ -15,7 +15,6 @@ const stackData = [
     { name: "Linux Admin", cat: "lowlevel", icon: "fab fa-linux" },
     { name: "Ciberseguridad", cat: "lowlevel", icon: "fas fa-user-shield" },
     { name: "Sistemas de Archivos", cat: "lowlevel", icon: "fas fa-hdd" },
-    { name: "Ciberseguridad", cat: "lowlevel", icon: "fas fa-user-shield" },
     
     // Core Web
     { name: "HTML5", cat: "web-core", icon: "fab fa-html5" },
